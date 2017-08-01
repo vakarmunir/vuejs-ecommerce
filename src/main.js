@@ -16,6 +16,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import router from './routers'
 
+window.Event = new Vue();
+
+
 new Vue({
   el: '#app',
   router,

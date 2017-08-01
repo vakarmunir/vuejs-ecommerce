@@ -8,14 +8,14 @@
       </div>
       <div class="row">
         <div class="col">
-          <b-form>
+          <b-form @keyup.native="wValidation.validateInput($event,5)">
             <b-form-fieldset
-                description="Let us know your full name."
-                label="Enter your name"
+                description="What you are selling ? "
+                label="Name"
                 :feedback="feedback"
                 :state="state"
                 :label-cols="3">
-                 <b-form-input v-model="name" :state="state"></b-form-input>
+                 <b-form-input v-model="name" id="name" :state="state" value=""></b-form-input>
             </b-form-fieldset>
           </b-form>
         </div>
@@ -25,6 +25,24 @@
 </template>
 
 <script>
+class WValidation {
+  constructor() {
+
+  }
+  validateInput(event,length=10)
+  {
+    let validationRespones = {has_error : false}
+    console.log( event.target.value.length , length )
+    console.log( event.target.value.lenght > length )
+    if (event.target.value.lenght > length) {
+      alert("got in ...")
+      // validationRespones['has_error'] = true
+    }
+    //console.log( "validationRespones === ", event.target.value)
+    console.log( "validationRespones from wValidation === ", validationRespones)
+    Event.$emit("validationResponesFN",validationRespones)
+  }
+}
 export default {
   computed: {
     feedback() {
@@ -36,8 +54,20 @@ export default {
   },
   data() {
     return {
-      name:''
+      name:'',
+      wValidation : new WValidation()
     }
+  },
+  methods :{
+    onSubmit(){
+      alert("on submitting....");
+    },
+
+  },
+  mounted(){
+    Event.$on('validationResponesFN',(response)=>{
+      console.log("finaallyyy === ", response);
+    })
   }
 }
 </script>
