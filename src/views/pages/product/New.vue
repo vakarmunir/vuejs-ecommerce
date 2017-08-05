@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import wInputText from "../../../components/wFormElements/wInputText.vue"
+import wInputText from "wFormElements/wInputText.vue"
 export default {
   components: {wInputText}
 }

@@ -42,7 +42,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'wFormElements': path.resolve(__dirname,'src/components/wFormElements/'),
+      'views': path.resolve(__dirname,'src/views/'),
+      'pages': path.resolve(__dirname,'src/views/pages'),
     }
   },
   devServer: {
