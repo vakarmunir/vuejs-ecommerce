@@ -14,5 +14,5 @@ Install the dependencies and run the project.
 
 ```sh
 $ npm install
-$ node run dev
+$ npm run dev
 ```
