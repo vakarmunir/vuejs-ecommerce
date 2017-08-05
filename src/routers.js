@@ -2,8 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import productsList from "./components/product/List.vue";
-import productNew from "./components/product/New.vue";
+import productsList from "./views/pages/product/List.vue";
+import productNew from "./views/pages/product/New.vue";
 
 let routes = [
   {
