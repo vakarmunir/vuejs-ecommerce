@@ -10,6 +10,8 @@
         <div class="col">
           <b-form>
             <w-input-text label="Name" description="What you are selling ? " :max-length="70"></w-input-text>
+            <v-chip :close="true">Waqar</v-chip>
+            <w-input-text :textarea="true" :rows="5" label="Description" description="Write a detail about what you're selling ? " :max-length="555"></w-input-text>
           </b-form>
         </div>
       </div>

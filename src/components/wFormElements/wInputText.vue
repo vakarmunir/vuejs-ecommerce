@@ -7,7 +7,7 @@
           :feedback="feedback"
           :state="state"
           :label-cols="3">
-           <b-form-input v-model="name" id="name" :state="state" value="" @input="validateInput($event)"></b-form-input>
+           <b-form-input :textarea="fieldIsTextArea" :rows="fieldRows" v-model="name" id="name" :state="state" value="" @input="validateInput($event)"></b-form-input>
       </b-form-fieldset>
     </div>
   </div>
@@ -17,6 +17,14 @@
 <script>
 export default {
   props: {
+    textarea:{
+      type: Boolean,
+      default: false
+    },
+    rows: {
+      type: Number,
+      default: 0
+    },
     description : {
       type:String,
       default:""
@@ -47,13 +55,15 @@ export default {
       fieldFeedback: "",
       fieldDescription: this.description,
       fieldLabel: this.label,
+      fieldIsTextArea: this.textarea,
+      fieldRows: this.rows
     }
   },
   methods :{
     validateInput(event)
     {
       if ( event.length > 0 && event.length > this.fieldMaxLength ) {
-        this.fieldState = "warning"
+        this.fieldState = "danger"
         this.fieldFeedback = "Maximum character limit is " + this.fieldMaxLength
       }else if ( event.length > 0 && event.length <= this.fieldMaxLength ) {
         this.fieldState = "success"
