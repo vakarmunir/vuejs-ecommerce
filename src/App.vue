@@ -33,7 +33,7 @@
   <v-app
     height="415px"
     light
-    id="e3"
+    id="app"
     standalone
   >
     <v-navigation-drawer
@@ -75,16 +75,12 @@
                 <v-container fluid>
                   <v-layout row>
                     <v-flex xs12>
-                      <v-content>
                         <router-view></router-view>
-                      </v-content>
                     </v-flex>
                   </v-layout>
                 </v-container>
               </v-card-text>
             </v-card>
-
-
           </v-flex>
         </v-layout>
       </v-container>
